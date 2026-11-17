@@ -45,17 +45,6 @@
     for (var j = 0; j < items.length; j++) io.observe(items[j]);
   }
 
-  // Highlight that follows the pointer on cards and panels
-  if (!reduce) {
-    document.addEventListener("pointermove", function (e) {
-      var el = e.target.closest && e.target.closest(".card, .panel");
-      if (!el) return;
-      var r = el.getBoundingClientRect();
-      el.style.setProperty("--mx", (e.clientX - r.left) + "px");
-      el.style.setProperty("--my", (e.clientY - r.top) + "px");
-    }, { passive: true });
-  }
-
   var years = document.querySelectorAll("[data-year]");
   for (var k = 0; k < years.length; k++) years[k].textContent = new Date().getFullYear();
 })();
